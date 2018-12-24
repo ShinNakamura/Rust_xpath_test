@@ -14,6 +14,7 @@ fn main() {
                 <div class="foo">foo</div>
             </p>]]></description>
         <comment>&lt;p>bar&lt;/p></comment>
+        <images><image>image_1.jpg</image><image>image_2.jpg</image></images>
     </result>
     "#;
 
@@ -28,4 +29,11 @@ fn main() {
 
     let comment = evaluate_xpath(&document, "//comment").expect("Not found 'comment'");
     assert_eq!("<p>bar</p>", comment.string());
+
+    let image1 = evaluate_xpath(&document, "//image").expect("Not found first image");
+    assert_eq!("image_1.jpg", image1.string());
+    // 上と同じ。添字は1からスタート
+    let image1 = evaluate_xpath(&document, "//image[1]").expect("Not found first image");
+    assert_eq!("image_1.jpg", image1.string());
+
 }
