@@ -1,0 +1,8 @@
+[package]
+name = "xpath"
+version = "0.1.0"
+authors = ["Shin Nakamura <sn@i.basicwerk.com>"]
+
+[dependencies]
+sxd-document = "0.3.0"
+sxd-xpath = "0.4.2"
